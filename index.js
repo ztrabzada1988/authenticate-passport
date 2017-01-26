@@ -75,6 +75,11 @@ app.post('/users', jsonParser, function (req, res) {
     });
 });
 
+
+// to fix an error caused by server - stackexchange
+mongoose.Promise = global.Promise;
+
 mongoose.connect('mongodb://localhost/auth').then(function () {
     app.listen(process.env.PORT || 8080);
+    console.log('Server running on local host:8080')
 });
