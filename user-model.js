@@ -13,7 +13,7 @@ var UserSchema = new mongoose.Schema({
         required: true
     }
 });
-
+// user schema for validating password
 UserSchema.methods.validatePassword = function (password, callback) {
     bcrypt.compare(password, this.password, function (err, isValid) {
         if (err) {
